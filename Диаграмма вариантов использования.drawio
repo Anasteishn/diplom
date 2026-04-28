@@ -1,0 +1,30 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36" version="29.5.2">
+  <diagram name="Страница — 1" id="jgX0icQgJJgy8kigv4cN">
+    <mxGraphModel dx="1970" dy="1302" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="tS_QZIRWDHBf2DCvRmfL-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="" vertex="1">
+          <mxGeometry height="1088" width="732" x="-1122" y="-627" as="geometry" />
+        </mxCell>
+        <mxCell id="IH2CMFlHiAOZ-F0hPDE3-55" parent="1" style="ellipse;fillColor=strokeColor;html=1;" value="" vertex="1">
+          <mxGeometry height="20" width="20" x="-37" y="-579" as="geometry" />
+        </mxCell>
+        <mxCell id="IH2CMFlHiAOZ-F0hPDE3-56" edge="1" parent="1" source="IH2CMFlHiAOZ-F0hPDE3-55" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="IH2CMFlHiAOZ-F0hPDE3-57" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="110" y="-382" as="sourcePoint" />
+            <mxPoint x="160" y="-432" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IH2CMFlHiAOZ-F0hPDE3-58" connectable="0" parent="IH2CMFlHiAOZ-F0hPDE3-56" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Ученик открыл расписание" vertex="1">
+          <mxGeometry relative="1" x="0.0467" as="geometry">
+            <mxPoint y="-3" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="IH2CMFlHiAOZ-F0hPDE3-57" parent="1" style="html=1;align=center;verticalAlign=top;rounded=1;absoluteArcSize=1;arcSize=10;dashed=0;whiteSpace=wrap;" value="Список занятий" vertex="1">
+          <mxGeometry height="29" width="140" x="-97" y="-509" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
