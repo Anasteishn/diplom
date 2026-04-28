@@ -1,0 +1,224 @@
+{
+  "trainers": [
+    {
+      "name": "Вещикова Нэсти",
+      "danceStyle": "Dancehall"
+    },
+    {
+      "name": "Лукьянова Соня",
+      "danceStyle": "Hip-Hop"
+    },
+    {
+      "name": "Яковлева Виктория",
+      "danceStyle": "Strip"
+    },
+    {
+      "name": "Джерсибесова Анна",
+      "danceStyle": "Twerk"
+    },
+    {
+      "name": "Хакунов Ахмэджан",
+      "danceStyle": "High Heels"
+    },
+    {
+      "name": "Нечаева Полина",
+      "danceStyle": "Choreo"
+    },
+    {
+      "name": "Смолкин Кирилл",
+      "danceStyle": "Dancemix"
+    },
+    {
+      "name": "Смирнова Дарья",
+      "danceStyle": "Vogue"
+    },
+    {
+      "name": "Колбасенко Данил",
+      "danceStyle": "Растяжка"
+    },
+    {
+      "name": "Федотова Полина",
+      "danceStyle": "Йога"
+    }
+  ],
+  "classTemplates": [
+    {
+      "id": "1",
+      "time": "13:00",
+      "durationMinutes": 55,
+      "className": "Strip",
+      "availableSpots": 20,
+      "trainerName": "Яковлева Виктория"
+    },
+    {
+      "id": "2",
+      "time": "14:00",
+      "durationMinutes": 55,
+      "className": "Dancehall",
+      "availableSpots": 20,
+      "trainerName": "Вещикова Нэсти"
+    },
+    {
+      "id": "3",
+      "time": "15:00",
+      "durationMinutes": 55,
+      "className": "Twerk",
+      "availableSpots": 20,
+      "trainerName": "Джерсибесова Анна"
+    },
+    {
+      "id": "4",
+      "time": "16:00",
+      "durationMinutes": 55,
+      "className": "High Heels",
+      "availableSpots": 20,
+      "trainerName": "Хакунов Ахмэджан"
+    },
+    {
+      "id": "5",
+      "time": "17:00",
+      "durationMinutes": 55,
+      "className": "Choreo",
+      "availableSpots": 20,
+      "trainerName": "Нечаева Полина"
+    },
+    {
+      "id": "6",
+      "time": "18:00",
+      "durationMinutes": 55,
+      "className": "Hip-Hop",
+      "availableSpots": 20,
+      "trainerName": "Лукьянова Соня"
+    },
+    {
+      "id": "7",
+      "time": "19:00",
+      "durationMinutes": 55,
+      "className": "Dancemix",
+      "availableSpots": 20,
+      "trainerName": "Смолкин Кирилл"
+    },
+    {
+      "id": "8",
+      "time": "20:00",
+      "durationMinutes": 55,
+      "className": "Йога",
+      "availableSpots": 20,
+      "trainerName": "Федотова Полина"
+    },
+    {
+      "id": "9",
+      "time": "21:00",
+      "durationMinutes": 55,
+      "className": "Растяжка",
+      "availableSpots": 20,
+      "trainerName": "Колбасенко Данил"
+    },
+    {
+      "id": "10",
+      "time": "22:00",
+      "durationMinutes": 55,
+      "className": "Vogue",
+      "availableSpots": 20,
+      "trainerName": "Смирнова Дарья"
+    },
+    {
+      "id": "1777392556458",
+      "time": "12:00",
+      "durationMinutes": 55,
+      "className": "Strip",
+      "availableSpots": 20,
+      "trainerName": "Вещикова Нэсти"
+    },
+    {
+      "id": "1777392628046",
+      "time": "12:00",
+      "durationMinutes": 55,
+      "className": "Strip",
+      "availableSpots": 20,
+      "trainerName": "Яковлева Виктория"
+    }
+  ],
+  "bookings": [],
+  "dialogs": {
+    "Вещикова Нэсти": [
+      {
+        "author": "Ученик",
+        "text": "Привет! сегодня будет занятие?",
+        "createdAt": "2026-03-22T20:23:02.662"
+      },
+      {
+        "author": "Тренер",
+        "text": "привет! да, все по расписанию",
+        "createdAt": "2026-03-22T17:23:26.547Z"
+      }
+    ]
+  },
+  "accounts": [
+    {
+      "login": "admin",
+      "passwordHash": "$2b$10$i5NPGhlkr2UXZWTqtsgmCugO8cPGGYjAGVqSntLGyyv.Z5CL6EIla",
+      "role": "admin"
+    },
+    {
+      "login": "nasti",
+      "passwordHash": "$2b$10$RtmkGUQohR1GPkzmnrbuh.Yim1yZoXRfmBvYBKO0DrJWjVPMN.AWO",
+      "role": "trainer",
+      "trainerName": "Вещикова Нэсти"
+    },
+    {
+      "login": "sonya",
+      "passwordHash": "$2b$10$IqtV5dbmd5kNmoNaw.p87.REI3a424FKZb6nDkVe5sNq.S9WekdLi",
+      "role": "trainer",
+      "trainerName": "Лукьянова Соня"
+    },
+    {
+      "login": "vika",
+      "passwordHash": "$2b$10$Xw10whe.kGjCxbY5YLyW2O2GtMESpIF3MXYm8BH9DYMDsdI3ZimrC",
+      "role": "trainer",
+      "trainerName": "Яковлева Виктория"
+    },
+    {
+      "login": "anna",
+      "passwordHash": "$2b$10$6ENoMld7vpaJA6bLW73fseJvF8ZlVQFOchqY68pL3UPQsDxXIzumm",
+      "role": "trainer",
+      "trainerName": "Джерсибесова Анна"
+    },
+    {
+      "login": "akhmed",
+      "passwordHash": "$2b$10$nBslqGQ3tnmS6F43GLD7kOZrj.dDUp6r51GvsN0kxd8a7uZv8ZU2C",
+      "role": "trainer",
+      "trainerName": "Хакунов Ахмэджан"
+    },
+    {
+      "login": "polina_n",
+      "passwordHash": "$2b$10$/R6Lt4G80y/QBPCgaqCbAOjPVWUTj8B87CW5SlmJjLj1JPrUppmBe",
+      "role": "trainer",
+      "trainerName": "Нечаева Полина"
+    },
+    {
+      "login": "kirill",
+      "passwordHash": "$2b$10$LxceafszUXFLtlF8/vC/oeGiVX3ptF9FcRTHzjK3CyqVeATirYsEi",
+      "role": "trainer",
+      "trainerName": "Смолкин Кирилл"
+    },
+    {
+      "login": "dasha",
+      "passwordHash": "$2b$10$mQ5FvEmHPb385jQU9Wp77Oo9Fi490jrI0CngSPOL3jN1yPEZW/.LO",
+      "role": "trainer",
+      "trainerName": "Смирнова Дарья"
+    },
+    {
+      "login": "danil",
+      "passwordHash": "$2b$10$TytQWgX/smO/2wS44dt9r./2cuKtWKcpomiLxtl5oaic4WwWHwO/q",
+      "role": "trainer",
+      "trainerName": "Колбасенко Данил"
+    },
+    {
+      "login": "polina_f",
+      "passwordHash": "$2b$10$7Qdfxg44D.TImnSna1Z.DO7XQ7FlbvQ5rpB.IAN.kI.Y2j9YfKp42",
+      "role": "trainer",
+      "trainerName": "Федотова Полина"
+    }
+  ]
+}
