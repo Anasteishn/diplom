@@ -153,7 +153,7 @@ function LoginPage({ onSuccess }) {
   return (
     <div className="app app-login">
       <div className="login-card">
-        <h1>Jersey BESY</h1>
+        <h1>Танцы И Только</h1>
         <p className="login-subtitle">Вход в панель</p>
         <form onSubmit={submit}>
           <div className="form-row">
@@ -284,7 +284,7 @@ function AdminCabinet({ token, login, onLogout }) {
   return (
     <div className="app">
       <header className="header">
-        <h1>Jersey BESY — администратор</h1>
+        <h1>Танцы И Только — администратор</h1>
         <div className="admin-info">
           <span className="user-pill">{login}</span>
           <button type="button" className="logout-btn" onClick={onLogout}>

@@ -149,7 +149,8 @@ class MobileAuthApiService {
         'mobile',
         'Телефон',
       ]);
-      final token = _firstNonEmptyString(body, [
+      final token =
+          _firstNonEmptyString(body, [
             'token',
             'accessToken',
             'access_token',
@@ -161,7 +162,8 @@ class MobileAuthApiService {
         firstName: firstName ?? 'Ученик',
         phone: phoneOut ?? phone,
         email: email ?? '',
-        newsletterConsent: body['newsletterConsent'] == true ||
+        newsletterConsent:
+            body['newsletterConsent'] == true ||
             body['newsletter'] == true ||
             body['mailing'] == true,
       );
@@ -269,7 +271,7 @@ class MobileAuthApiService {
         }),
       );
       lastCreateBookingHttpStatus = res.statusCode;
-      if (res.statusCode != 200) {
+      if (res.statusCode != 200 && res.statusCode != 201) {
         _setBookingErrorFromBody(res.bodyBytes, res.statusCode);
         return null;
       }

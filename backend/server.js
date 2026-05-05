@@ -94,20 +94,24 @@ app.post('/api/mobile/payment/create-checkout', async (req, res) => {
 });
 
 app.post('/api/auth/login', async (req, res) => {
-  console.log(req.body)
-  const { username, password } = req.body;
-  console.log('Login attempt:', username, password); // временный лог
+  console.log(req.body);
+  
+  // Принимаем поле login (от фронтенда) или username (на всякий случай)
+  const login = req.body.login || req.body.username || '';
+  const { password } = req.body;
 
-  // Заглушка для тренера
+  console.log('Login attempt:', { login, password });
+
+  // Администратор: логин пустая строка, пароль admin123
+  if (login === '' && password === 'admin123') {
+    console.log('Admin login success');
+    return res.json({ role: 'admin', token: 'fake-token' });
+  }
+
+  // Тренер (заглушка): любой непустой логин, пароль trainer123
   if (password === 'trainer123') {
     console.log('Trainer login success');
     return res.json({ role: 'trainer', token: 'fake-token' });
-  }
-
-  // Администратор
-  if (username === '' && password === 'admin123') {
-    console.log('Admin login success');
-    return res.json({ role: 'admin', token: 'fake-token' });
   }
 
   // Если ничего не подошло

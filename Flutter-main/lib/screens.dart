@@ -466,6 +466,19 @@ class AuthProvider extends ChangeNotifier {
     _bookingProviderRef?.clearAll();
     notifyListeners();
   }
+
+  Future<void> refreshSubscription() async {
+    final sub = await MobileAuthApiService.getSubscription(_token);
+    if (sub != null) {
+      _activeSubscription = UserSubscription(
+        planTitle: sub.title,
+        totalClasses: sub.totalClasses,
+        remainingClasses: sub.remainingClasses,
+        expiresAt: sub.expiresAt,
+      );
+      notifyListeners();
+    }
+  }
 }
 
 class DanceStyleInfo {
@@ -510,14 +523,14 @@ class StudioDataProvider extends ChangeNotifier {
   BookingProvider? _bookingProviderRef;
 
   StudioDataProvider() {
-    _seedDefaults();
+    //_seedDefaults();
   }
 
   void bindBookingProvider(BookingProvider bookingProvider) {
     _bookingProviderRef = bookingProvider;
   }
 
-  void _seedDefaults() {
+  /* void _seedDefaults() {
     _trainers
       ..clear()
       ..addAll([
@@ -657,7 +670,7 @@ class StudioDataProvider extends ChangeNotifier {
         ),
       ]);
     _dialogs.clear();
-  }
+  } */
 
   Future<void> refreshFromServer() async {
     final json = await StudioApiService.fetchStudio();
@@ -868,7 +881,7 @@ class StudioDataProvider extends ChangeNotifier {
     'Растяжка': const DanceStyleInfo(
       title: 'Растяжка',
       description:
-          ') в танцах — это система упражнений, направленная на развитие гибкости, эластичности мышц и подвижности суставов, что критически важно для грациозности, техники и предотвращения травм. Это ключевой элемент тренировок, который улучшает кровообращение, снимает стресс и позволяет выполнять сложные танцевальные связки, включая шпагаты.',
+          'Это система упражнений, направленная на развитие гибкости, эластичности мышц и подвижности суставов, что критически важно для грациозности, техники и предотвращения травм. Это ключевой элемент тренировок, который улучшает кровообращение, снимает стресс и позволяет выполнять сложные танцевальные связки, включая шпагаты.',
     ),
   };
 
@@ -1496,6 +1509,13 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     BookingProvider bookingProvider,
   ) async {
     final auth = context.read<AuthProvider>();
+    print('=== ПОПЫТКА ЗАПИСИ ===');
+    print('Token from AuthProvider: ${auth.token}');
+    if (auth.token == null) {
+      print('Токен ОТСУТСТВУЕТ, необходимо войти заново');
+    } else {
+      print('Токен присутствует, длина: ${auth.token!.length}');
+    }
     final studio = context.read<StudioDataProvider>();
     final bookingId = await MobileAuthApiService.createBooking(
       token: auth.token,
@@ -1505,6 +1525,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       time: classItem.time,
       durationMinutes: classItem.durationMinutes,
     );
+
+    // --- Обработка ошибки (локальный режим) ---
     if (bookingId == null) {
       final localRemaining = auth.activeSubscription?.remainingClasses ?? 0;
       final canDemoLocal =
@@ -1526,7 +1548,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            content: Text('Вы записались на ${classItem.className}'),
+            content: Text('Вы записались на ${classItem.className} (локально)'),
             backgroundColor: Colors.green,
             duration: const Duration(seconds: 2),
           ),
@@ -1546,6 +1568,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       return;
     }
 
+    // ===================== УСПЕШНАЯ ЗАПИСЬ =====================
+    // 1. Обновляем записи (BookingProvider)
     final serverBookings = await MobileAuthApiService.getBookings(auth.token);
     bookingProvider.replaceAllFromRemote(
       serverBookings
@@ -1561,6 +1585,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           )
           .toList(),
     );
+
+    // 2. Обновляем абонемент (баланс)
     final sub = await MobileAuthApiService.getSubscription(auth.token);
     if (sub != null) {
       auth.applySubscriptionSnapshot(
@@ -1571,7 +1597,12 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       );
     }
 
+    // 3. Обновляем расписание (количество мест и кнопки)
+    await studio.refreshFromServer(); // <--- ключевая строка
+
+    // 4. Уведомления и сообщение
     _sendBookingNotifications(classItem);
+    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text('Вы записались на ${classItem.className}'),
